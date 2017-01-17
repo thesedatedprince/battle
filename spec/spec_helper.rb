@@ -102,6 +102,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
 Capybara.configure do |c|
   c.javascript_driver = :poltergeist
   c.default_driver = :poltergeist
