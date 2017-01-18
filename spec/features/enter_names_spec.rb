@@ -4,6 +4,6 @@ feature 'Enter names' do
     fill_in :player_1_name, with: 'Fox'
     fill_in :player_2_name, with: 'Badger'
     click_button 'Submit'
-    expect(page).to have_content "Fox vs. Badger"
+    expect(page).to have_content "Fox vs.Badger"
   end
 end
