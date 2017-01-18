@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class Battle < Sinatra::Base
-  get '/names' do
+  get '/' do
      erb (:index)
   end
 
