@@ -33,6 +33,11 @@ class Battle < Sinatra::Base
     erb(:attack)
   end
 
+  get '/heal_and_conf' do
+    @game.heal
+    erb(:heal)
+  end
+
   post '/switch_turn' do
     @game.switch_turn
     redirect '/play'

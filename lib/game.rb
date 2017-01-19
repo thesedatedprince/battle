@@ -29,6 +29,10 @@ class Game
     @opponent.attacked
   end
 
+  def heal
+    @current_player.healed
+  end
+
   def switch_turn
     @current_player, @opponent = @opponent, @current_player
   end

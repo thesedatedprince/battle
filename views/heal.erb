@@ -1,0 +1,11 @@
+<%= @game.current_player.name %> healed themselves
+
+<%= @game.current_player.name %>: <%= @game.current_player.hit_points %>HP
+
+
+Heal Confirmed!
+
+
+<form action='/switch_turn' method='post'>
+	<input type ='submit' value='OK'/>
+</form>

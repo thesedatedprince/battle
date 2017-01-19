@@ -12,6 +12,10 @@ class Player
     @hit_points -= damage
   end
 
+  def healed
+    @hit_points += 10
+  end
+
   def dead?
     @hit_points <= 0
   end

@@ -3,7 +3,7 @@ require 'game'
 describe Game do
 
   subject(:game){described_class.new(player1, player2)}
-  let(:player1){ double :player, name: nil }
+  let(:player1){ double :player, name: nil, healed: nil }
   let(:player2){ double :player, attacked: nil, name: nil }
 
   describe '#player_1' do
@@ -22,6 +22,13 @@ describe Game do
     it 'damages the player' do
       game.attack
       expect(player2).to have_received(:attacked)
+    end
+  end
+
+  describe '#heal' do
+    it 'heals the player' do
+      game.heal
+      expect(player1).to have_received(:healed)
     end
   end
 
