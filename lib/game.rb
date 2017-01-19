@@ -1,10 +1,11 @@
 
 class Game
 
-#  attr_reader :player_1, :player_2
+  attr_reader :current_player
 
   def initialize(player1, player2)
     @players = [player1, player2]
+    @current_player = @players.first.name
   end
 
   def player_1
@@ -19,5 +20,13 @@ class Game
     victim.attacked
   end
 
+  # def current_player
+  #   @players.first.name
+  # end
+
+
+  def switch_turn(player)
+    @current_player == @players[0] ? @current_player = @players[1] : @current_player = @players[0]
+  end
 
 end
