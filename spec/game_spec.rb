@@ -38,7 +38,6 @@ describe Game do
     end
 
     it 'switches the current player' do
-      #allow(player1).to receive(:current_name).and_return("player 1")
       game.switch_turn
       expect(game.current_player).to eq player2
     end

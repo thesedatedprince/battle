@@ -16,16 +16,24 @@ describe Player do
     end
   end
 
-  describe '#attacked' do
-    it 'should reduce hit points by 0-20 after attack' do
+  context 'changing hit points' do
+    before(:each) do
       allow(Kernel).to receive(:rand).and_return(10)
-      expect{ player1.attacked }.to change { player1.hit_points }.by -10
     end
+
+    describe '#attacked' do
+      it 'should reduce hit points by 0-20 after attack' do
+      expect{ player1.attacked }.to change { player1.hit_points }.by -10
+      end
+    end
+
+    describe '#healed' do
+      it 'should increade hit points by 10' do        
+        expect{ player1.healed }.to change { player1.hit_points }.by 10
+      end
+    end
+
   end
 
-  describe '#healed' do
-    it 'should increade hit points by 10' do
-      expect{ player1.healed }.to change { player1.hit_points }.by 10
-    end
-  end
+  
 end
