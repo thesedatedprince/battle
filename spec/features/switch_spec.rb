@@ -7,8 +7,7 @@ feature 'switch turns' do
   end
   scenario 'it should switch with Player 2\'s turn' do
     sign_in_and_play
-    click_link('Attack')
-    click_button('OK')
+    attack_and_confirm
     expect(page).to have_content('Mittens\'s turn')
   end
 end

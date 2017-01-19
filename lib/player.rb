@@ -9,10 +9,14 @@ class Player
   end
 
   def attacked
-    @hit_points -= 10
+    @hit_points -= damage
   end
 
   def dead?
     @hit_points <= 0
+  end
+
+  def damage 
+    Kernel::rand(20)
   end
 end
