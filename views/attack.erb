@@ -1,4 +1,4 @@
-<%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+<%= @game.current_player.name %> attacked <%= @game.opponent.name %>
 
 <%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP
 <%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
@@ -9,4 +9,3 @@ Attack Confirmed!
 <form action='/switch_turn' method='post'>
 	<input type ='submit' value='OK'/>
 </form>
-

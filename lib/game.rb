@@ -21,19 +21,8 @@ class Game
     @opponent.attacked
   end
 
-  def current_player
-    
-  end
-
-
   def switch_turn
-    if @current_player == @players[0]
-      @current_player = @players[1]
-      @opponent = @players[0]
-    else
-      @current_player = @players[0]
-      @opponent = @players[1]
-    end
+    @current_player, @opponent = @opponent, @current_player
   end
 
 end
