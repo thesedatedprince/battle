@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    session[:comment] = "#{player_2_name} has been struck"
+    session[:comment] = "#{session[:player_2_name]} has been struck"
     redirect to('/play')
   end
   # start the server if ruby file executed directly
