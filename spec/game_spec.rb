@@ -4,7 +4,7 @@ describe Game do
 
   subject(:game){described_class.new(player1, player2)}
   let(:player1){ double :player, name: nil }
-  let(:player2){ double :player, attacked: nil }
+  let(:player2){ double :player, attacked: nil, name: nil }
 
   describe '#player_1' do
     it "should instantiate with player 1 object" do
@@ -26,9 +26,14 @@ describe Game do
   end
 
   describe '#switch turn' do
+    it 'initializes as set to player 1' do
+      expect(game.current_player).to eq player1.name
+    end
+
     it 'switches the current player' do
-      game.switch_turn(player1)
-      expect(game.current_player).to eq player2
+      #allow(player1).to receive(:current_name).and_return("player 1")
+      game.switch_turn
+      expect(game.current_player).to eq player2.name
     end
   end
 

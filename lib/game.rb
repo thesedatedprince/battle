@@ -20,13 +20,8 @@ class Game
     victim.attacked
   end
 
-  # def current_player
-  #   @players.first.name
-  # end
-
-
-  def switch_turn(player)
-    @current_player == @players[0] ? @current_player = @players[1] : @current_player = @players[0]
+  def switch_turn
+    @current_player == @players[0].name ? @current_player = @players[1].name : @current_player = @players[0].name
   end
 
 end
