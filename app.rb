@@ -9,6 +9,7 @@ class Battle < Sinatra::Base
     @player_2_name = session[:player_2_name]
     @player_1_points = 100
     @player_2_points = 100
+    @comment = session[:comment]
     erb (:play)
   end
 
@@ -22,6 +23,10 @@ class Battle < Sinatra::Base
     redirect to('/play')
   end
 
+  post '/attack' do
+    session[:comment] = "#{player_2_name} has been struck"
+    redirect to('/play')
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
