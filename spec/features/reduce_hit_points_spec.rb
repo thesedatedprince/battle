@@ -11,7 +11,7 @@ feature 'Reduce HP' do
   scenario 'reduce Player 1 HP after player 2 attack' do
     sign_in_and_play
     click_link('Attack')
-    click_link('OK')
+    click_button('OK')
     click_link('Attack')
     expect(page).to have_content "Dave: 90HP"
   end
