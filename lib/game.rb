@@ -9,6 +9,14 @@ class Game
     @opponent = player2
   end
 
+   def self.start_game(player1, player2)
+     @game = Game.new(player1, player2)
+   end
+
+   def self.instance
+     @game
+   end
+
   def player_1
     @players.first
   end
