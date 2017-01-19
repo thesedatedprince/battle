@@ -8,4 +8,10 @@ describe Player do
       expect(subject.name).to eq "name"
     end
   end
+
+  describe "#points_damage" do
+    it 'reduces the player hit points' do
+      expect{subject.points_damage}.to change {subject.points}.by(-10)
+    end
+  end
 end
