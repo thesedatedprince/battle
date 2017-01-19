@@ -23,14 +23,21 @@ class Battle < Sinatra::Base
 
   get '/attack_and_conf' do
     @game = $game
-    @game.attack    
+    @game.attack
+    if @game.player_1.dead? || @game.player_2.dead?
+      redirect '/game_over'
+    end
     erb(:attack)
   end
 
   post '/switch_turn' do
     $game.switch_turn
     redirect '/play'
-  end 
+  end
+
+  get '/game_over' do
+    erb(:game_over)
+  end
 
   run! if app_file == $0
 end
