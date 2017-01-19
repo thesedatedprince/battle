@@ -20,20 +20,20 @@ describe Game do
 
   describe '#attack' do
     it 'damages the player' do
-      game.attack(player2)
+      game.attack
       expect(player2).to have_received(:attacked)
     end
   end
 
   describe '#switch turn' do
     it 'initializes as set to player 1' do
-      expect(game.current_player).to eq player1.name
+      expect(game.current_player).to eq player1
     end
 
     it 'switches the current player' do
       #allow(player1).to receive(:current_name).and_return("player 1")
       game.switch_turn
-      expect(game.current_player).to eq player2.name
+      expect(game.current_player).to eq player2
     end
   end
 
