@@ -8,8 +8,8 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
-    @player_1_points = 100
-    @player_2_points = 100
+    @player_1_points = $player_1.points
+    @player_2_points = $player_2.points
     @comment = session[:comment]
     erb (:play)
   end
@@ -25,7 +25,8 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    session[:comment] = "#{$player_2.name} has been struck"
+    $player_2.points_damage
+    session[:comment] = "#{$player_2.name} has been struck reducing points by 10 to #{$player_2.points}"
     redirect to('/play')
   end
   # start the server if ruby file executed directly
