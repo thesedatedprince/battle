@@ -10,7 +10,7 @@ feature '#switch' do
     expect(page).to have_content "Badger has 90 hit points"
   end
 
-  scenario 'it allows a switch to player_1 being attacked' do
+  scenario 'it allows a switch to player_1 being attacked, and reduces their HP' do
     fight
     expect(page).to have_content "Fox has 90 hit points"
   end

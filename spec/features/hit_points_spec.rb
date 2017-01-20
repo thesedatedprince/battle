@@ -7,4 +7,8 @@ feature 'Hit Points' do
     sign_in_and_play
     expect(page).to have_content "Badger has 100 hit points"
   end
+  scenario "So I can see player 1's hit points" do
+    sign_in_and_play
+    expect(page).to have_content "Fox has 100 hit points"
+  end
 end

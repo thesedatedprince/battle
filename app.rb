@@ -11,7 +11,6 @@ class Battle < Sinatra::Base
     @player_2_name = $game.opponent.name
     @player_1_points = $game.current_player.points
     @player_2_points = $game.opponent.points
-    # @comment = session[:comment]
     erb (:play)
   end
 
@@ -26,7 +25,6 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     $game.attack($game.opponent)
-    # session[:comment] = "#{$game.opponent.name} points reduced by 10 to #{$game.opponent.points}"
     $game.switch
     redirect to('/confirmation')
   end
