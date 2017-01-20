@@ -7,11 +7,11 @@ class Battle < Sinatra::Base
   enable :sessions
 
   get '/play' do
-    @player_1_name = $game.player_1.name
-    @player_2_name = $game.player_2.name
-    @player_1_points = $game.player_1.points
-    @player_2_points = $game.player_2.points
-    @comment = session[:comment]
+    @player_1_name = $game.current_player.name
+    @player_2_name = $game.opponent.name
+    @player_1_points = $game.current_player.points
+    @player_2_points = $game.opponent.points
+    # @comment = session[:comment]
     erb (:play)
   end
 
@@ -25,15 +25,17 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    $game.attack($game.player_2)
-    session[:comment] = "#{$game.player_2.name} points reduced by 10 to #{$game.player_2.points}"
+
+    $game.attack($game.opponent)
+    # session[:comment] = "#{$game.opponent.name} points reduced by 10 to #{$game.opponent.points}"
+    $game.switch
     redirect to('/play')
   end
-  post '/switch' do
-     $game.attack($game.player_1)
-     session[:comment] = "#{$game.player_1.name} points reduced by 10 to #{$game.player_1.points}"
-     redirect to('/play')
-  end
+  # post '/switch' do
+  #    $game.attack($game.player_1)
+  #    session[:comment] = "#{$game.player_1.name} points reduced by 10 to #{$game.player_1.points}"
+  #    redirect to('/play')
+  # end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
