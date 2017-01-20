@@ -7,6 +7,6 @@ feature "attack_player" do
   scenario "attack reduces Player 2s hit points by 10" do
     sign_in_and_play
     click_button 'Attack'
-    expect(page).to have_content "#{confirmation_message}"
+    expect(page).to have_content "Fox has attacked Badger"
   end
 end

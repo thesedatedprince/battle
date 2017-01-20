@@ -6,6 +6,7 @@ feature '#switch' do
   scenario 'it correctly changes the player_2 points on first attack' do
     sign_in_and_play
     click_button 'Attack'
+    click_link 'ok'
     expect(page).to have_content "Badger has 90 hit points"
   end
 
@@ -17,6 +18,7 @@ feature '#switch' do
   scenario 'player_1 can attack after being attacked' do
     fight
     click_button 'Attack'
+    click_link 'ok'
     expect(page).to have_content "#{$game.opponent.name} has #{$game.opponent.points} hit points"
   end
 

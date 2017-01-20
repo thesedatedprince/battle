@@ -30,6 +30,7 @@ class Battle < Sinatra::Base
     $game.switch
     redirect to('/confirmation')
   end
+
     get '/confirmation' do
       erb (:confirmation)
     end
