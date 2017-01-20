@@ -25,17 +25,14 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-
     $game.attack($game.opponent)
     # session[:comment] = "#{$game.opponent.name} points reduced by 10 to #{$game.opponent.points}"
     $game.switch
-    redirect to('/play')
+    redirect to('/confirmation')
   end
-  # post '/switch' do
-  #    $game.attack($game.player_1)
-  #    session[:comment] = "#{$game.player_1.name} points reduced by 10 to #{$game.player_1.points}"
-  #    redirect to('/play')
-  # end
+    get '/confirmation' do
+      erb (:confirmation)
+    end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -8,13 +8,13 @@ describe Game do
 
   describe '#player_1' do
     it 'retrieves the first player' do
-      expect(game.player_1).to eq player1
+      expect(game.current_player).to eq player1
     end
   end
 
   describe '#player_2' do
     it 'retrieves the second player' do
-      expect(game.player_2).to eq player2
+      expect(game.opponent).to eq player2
     end
   end
 

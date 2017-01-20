@@ -11,5 +11,5 @@ def fight
   fill_in :player_2_name, with: 'Badger'
   click_button 'Submit'
   click_button 'Attack'
-  click_button 'Other!'
+  click_button 'Attack'
 end
