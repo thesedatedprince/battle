@@ -26,13 +26,13 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     $game.attack($game.player_2)
-    session[:comment] = "#{$game.player_2.name} has been struck reducing points by 10 to #{$game.player_2.points}"
+    session[:comment] = "#{$game.player_2.name} points reduced by 10 to #{$game.player_2.points}"
     redirect to('/play')
   end
   post '/switch' do
-    $game.attack($game.player_1)
-    session[:comment] = "#{$game.player_1.name} has been struck reducing points by 10 to #{$game.player_1.points}"
-    redirect to('/play')
+     $game.attack($game.player_1)
+     session[:comment] = "#{$game.player_1.name} points reduced by 10 to #{$game.player_1.points}"
+     redirect to('/play')
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
